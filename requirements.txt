@@ -1,0 +1,2 @@
+# Sin dependencias externas.
+# Python 3.10 o superior, solo módulos estándar: csv, decimal, sqlite3, unittest.
