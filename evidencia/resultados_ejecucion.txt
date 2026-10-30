@@ -1,0 +1,58 @@
+RESULTADOS VERIFICADOS — Python stdlib + SQLite
+
+PRIMERA EJECUCION
+PRE-ENTREGA 8 — ETL CSV A SQLITE
+Filas leídas: 39
+Duplicados exactos: 2
+No confirmadas: 3
+Inválidas: 4
+Ventas válidas: 30
+Insertadas: 30 | Actualizadas: 0 | Sin cambios: 0
+Filas en SQLite: 30
+Ingresos en SQLite (centavos): 1602360
+Base generada: salidas/analytics.db
+Reporte generado: salidas/reporte_etl.json
+ETL FINALIZADO: OK
+
+SEGUNDA EJECUCION (IDEMPOTENCIA)
+PRE-ENTREGA 8 — ETL CSV A SQLITE
+Filas leídas: 39
+Duplicados exactos: 2
+No confirmadas: 3
+Inválidas: 4
+Ventas válidas: 30
+Insertadas: 0 | Actualizadas: 0 | Sin cambios: 30
+Filas en SQLite: 30
+Ingresos en SQLite (centavos): 1602360
+Base generada: salidas/analytics.db
+Reporte generado: salidas/reporte_etl.json
+ETL FINALIZADO: OK
+
+PRUEBAS
+test_01_csv_entrada_39_filas (test_pipeline.TestETL.test_01_csv_entrada_39_filas) ... ok
+test_02_datos_limpios_30_ventas (test_pipeline.TestETL.test_02_datos_limpios_30_ventas) ... ok
+test_03_duplicados_dos (test_pipeline.TestETL.test_03_duplicados_dos) ... ok
+test_04_no_confirmados_tres (test_pipeline.TestETL.test_04_no_confirmados_tres) ... ok
+test_05_invalidos_cuatro (test_pipeline.TestETL.test_05_invalidos_cuatro) ... ok
+test_06_categoria_normalizada (test_pipeline.TestETL.test_06_categoria_normalizada) ... ok
+test_07_importes_centavos (test_pipeline.TestETL.test_07_importes_centavos) ... ok
+test_08_fechas_y_meses_coherentes (test_pipeline.TestETL.test_08_fechas_y_meses_coherentes) ... ok
+test_09_cliente_vacio_se_descarta (test_pipeline.TestETL.test_09_cliente_vacio_se_descarta) ... ok
+test_10_conflicto_de_id_aborta (test_pipeline.TestETL.test_10_conflicto_de_id_aborta) ... ok
+test_11_no_deja_persistencia_si_falla_CSV (test_pipeline.TestETL.test_11_no_deja_persistencia_si_falla_CSV) ... ok
+test_12_crea_SQLite_tabla_y_vista (test_pipeline.TestETL.test_12_crea_SQLite_tabla_y_vista) ... ok
+test_13_idempotencia_repetir_sin_duplicar (test_pipeline.TestETL.test_13_idempotencia_repetir_sin_duplicar) ... ok
+test_14_actualiza_venta_corregida_no_duplica (test_pipeline.TestETL.test_14_actualiza_venta_corregida_no_duplica) ... ok
+test_15_rollback_simulado_revierte_primera_insercion (test_pipeline.TestETL.test_15_rollback_simulado_revierte_primera_insercion) ... ok
+test_16_reconciliacion_vista_con_total (test_pipeline.TestETL.test_16_reconciliacion_vista_con_total) ... ok
+test_17_integridad_suma_ayudada_por_CHECK (test_pipeline.TestETL.test_17_integridad_suma_ayudada_por_CHECK) ... ok
+test_18_reporte_existe_solo_al_terminar (test_pipeline.TestETL.test_18_reporte_existe_solo_al_terminar) ... ok
+test_19_CLI_independiente_directorio_trabajo (test_pipeline.TestETL.test_19_CLI_independiente_directorio_trabajo) ... ok
+test_20_CLI_repetido_mantiene_filas (test_pipeline.TestETL.test_20_CLI_repetido_mantiene_filas) ... ok
+test_21_documentacion_contiene_requisitos_y_pasos (test_pipeline.TestETL.test_21_documentacion_contiene_requisitos_y_pasos) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 2.942s
+
+OK
+
